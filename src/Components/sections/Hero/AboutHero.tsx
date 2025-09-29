@@ -180,13 +180,12 @@ const AboutHero: React.FC<AboutHeroProps> = ({
 
           {/* Play Icon - overlaid on top */}
           <div className="relative z-10">
-            <svg
+            <img
+              src="/assets/icons/Ionicons Designer Pack/play.svg"
+              alt="Play"
               className="w-5 h-5 md:w-6 md:h-6"
-              viewBox="0 0 24 24"
-              fill="white"
-            >
-              <path d="M8 5v14l11-7z" />
-            </svg>
+              style={{ filter: "brightness(0) invert(1)" }}
+            />
           </div>
         </div>
 

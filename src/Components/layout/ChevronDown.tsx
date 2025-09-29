@@ -1,4 +1,4 @@
-import { COLORS } from "@/lib/constants";
+import Image from "next/image";
 import React from "react";
 
 interface ChevronDownProps {
@@ -32,34 +32,34 @@ const ChevronDown: React.FC<ChevronDownProps> = ({
       `}
     >
       {/* Top chevron - 30% opacity */}
-      {/* @ts-expect-error - ion-icon is a custom element not recognized by TypeScript */}
-      <ion-icon
-        name="chevron-down-outline"
+      <Image
+        src="/assets/icons/Ionicons Designer Pack/chevron-down.svg"
+        alt=""
+        width={24}
+        height={24}
         style={{
-          fontSize: "24px",
-          color: COLORS.base.pureBlack,
           opacity: 0.3,
         }}
       />
 
       {/* Middle chevron - 60% opacity */}
-      {/* @ts-expect-error - ion-icon is a custom element not recognized by TypeScript */}
-      <ion-icon
-        name="chevron-down-outline"
+      <Image
+        src="/assets/icons/Ionicons Designer Pack/chevron-down.svg"
+        alt=""
+        width={24}
+        height={24}
         style={{
-          fontSize: "24px",
-          color: COLORS.base.pureBlack,
           opacity: 0.6,
         }}
       />
 
       {/* Bottom chevron - 100% opacity */}
-      {/* @ts-expect-error - ion-icon is a custom element not recognized by TypeScript */}
-      <ion-icon
-        name="chevron-down-outline"
+      <Image
+        src="/assets/icons/Ionicons Designer Pack/chevron-down.svg"
+        alt=""
+        width={24}
+        height={24}
         style={{
-          fontSize: "24px",
-          color: COLORS.base.pureBlack,
           opacity: 1.0,
         }}
       />

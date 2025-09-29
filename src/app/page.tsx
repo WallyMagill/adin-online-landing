@@ -4,6 +4,7 @@ import BackgroundGradient from "@/Components/layout/BackgroundGradient";
 import ChevronDown from "@/Components/layout/ChevronDown";
 import Footer from "@/Components/layout/Footer";
 import Header from "@/Components/layout/Header";
+import AboutContent from "@/Components/sections/Content/AboutContent";
 import AboutHero from "@/Components/sections/Hero/AboutHero";
 import { useRef } from "react";
 
@@ -18,9 +19,9 @@ export default function Home() {
   };
 
   return (
-    <div className="relative">
+    <div className="relative w-full overflow-x-hidden">
       {/* Hero Section - Full viewport height */}
-      <section className="relative h-screen flex flex-col">
+      <section className="relative h-screen flex flex-col w-full">
         <Header />
 
         <div className="flex-1 flex items-center justify-center">
@@ -32,12 +33,9 @@ export default function Home() {
       </section>
 
       {/* Content Section */}
-      <section ref={contentRef} className="relative min-h-screen">
+      <section ref={contentRef} className="relative w-full">
         <BackgroundGradient position="top" />
-        <div className="py-20 px-6">
-          <h2 className="text-3xl font-bold mb-4">Content Section</h2>
-          <p>This is the content that appears after scrolling.</p>
-        </div>
+        <AboutContent />
         <BackgroundGradient position="bottom" />
       </section>
 

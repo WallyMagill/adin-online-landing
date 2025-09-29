@@ -1,3 +1,5 @@
+// TODO: Could make mobile footer better
+
 import { ASSETS, COLORS, TYPOGRAPHY } from "@/lib/constants";
 import Image from "next/image";
 import Link from "next/link";
@@ -21,10 +23,14 @@ const Footer: React.FC<FooterProps> = ({ className = "" }) => {
         <div className="flex gap-6 md:gap-10">
           {/* Column 1: ADIN for */}
           <div className="flex flex-col">
-            {React.createElement("ion-icon", {
-              name: "people",
-              style: { fontSize: "24px", color: COLORS.base.pureBlack },
-            })}
+            <Image
+              src="/assets/icons/Ionicons Designer Pack/people.svg"
+              alt="People icon"
+              width={24}
+              height={24}
+              className="w-6 h-6"
+              style={{ color: COLORS.base.pureBlack }}
+            />
             <h3
               className="font-bold mt-1.5 text-base"
               style={{ color: COLORS.base.pureBlack }}
@@ -56,10 +62,14 @@ const Footer: React.FC<FooterProps> = ({ className = "" }) => {
 
           {/* Column 2: Resources */}
           <div className="flex flex-col">
-            {React.createElement("ion-icon", {
-              name: "shield-checkmark",
-              style: { fontSize: "24px", color: COLORS.base.pureBlack },
-            })}
+            <Image
+              src="/assets/icons/Ionicons Designer Pack/shield-checkmark.svg"
+              alt="Shield checkmark icon"
+              width={24}
+              height={24}
+              className="w-6 h-6"
+              style={{ color: COLORS.base.pureBlack }}
+            />
             <h3
               className="font-bold mt-1.5 text-base"
               style={{ color: COLORS.base.pureBlack }}
@@ -124,14 +134,14 @@ const Footer: React.FC<FooterProps> = ({ className = "" }) => {
               className="hover:opacity-70 transition-opacity flex items-center justify-center w-5 h-5"
               aria-label="Email us"
             >
-              {React.createElement("ion-icon", {
-                name: "mail",
-                style: {
-                  fontSize: "20px",
-                  color: COLORS.base.pureBlack,
-                  display: "block",
-                },
-              })}
+              <Image
+                src="/assets/icons/Ionicons Designer Pack/mail.svg"
+                alt="Mail icon"
+                width={20}
+                height={20}
+                className="w-5 h-5"
+                style={{ color: COLORS.base.pureBlack }}
+              />
             </Link>
           </div>
 
