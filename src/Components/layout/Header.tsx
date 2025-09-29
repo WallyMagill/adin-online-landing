@@ -3,7 +3,8 @@
 import { ASSETS, COLORS, LAYOUT, TYPOGRAPHY } from "@/lib/constants";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
+import { usePathname } from "next/navigation";
+import React, { useEffect, useState } from "react";
 
 // Define the navigation items with their corresponding icons
 const HEADER_NAV_ITEMS = [
@@ -11,7 +12,6 @@ const HEADER_NAV_ITEMS = [
     name: "About",
     href: "/",
     icon: "information-circle",
-    isActive: true, // About is active in the design
   },
   {
     name: "Investors",
@@ -36,14 +36,24 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ className = "" }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [currentPath, setCurrentPath] = useState("");
+  const pathname = usePathname();
+
+  useEffect(() => {
+    setCurrentPath(pathname);
+  }, [pathname]);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
+  const isActive = (href: string) => {
+    return href === "/" ? currentPath === "/" : currentPath.startsWith(href);
+  };
+
   return (
     <header
-      className={`relative w-full px-6 lg:px-10 pt-12 pb-6 lg:pt-12 lg:pb-8 flex items-center ${className}`}
+      className={`relative w-full px-6 lg:px-10 pt-12 pb-6 lg:pt-12 lg:pb-8 flex items-center justify-between ${className}`}
       style={{
         height: LAYOUT.header.height,
         fontFamily: TYPOGRAPHY.fontFamily.primary,
@@ -98,50 +108,54 @@ const Header: React.FC<HeaderProps> = ({ className = "" }) => {
           backgroundColor: COLORS.base.pureWhite,
         }}
       >
-        {HEADER_NAV_ITEMS.map((item) => (
-          <Link
-            key={item.name}
-            href={item.href}
-            className={`
-              flex items-center gap-2 px-6 py-3.5 rounded-[80px]
-              transition-all duration-250 hover:bg-gray-50
-              ${
-                item.isActive
-                  ? "bg-white border border-purple-400"
-                  : "bg-transparent"
-              }
-            `}
-          >
-            {/* Icon */}
-            {React.createElement("ion-icon", {
-              name: item.icon,
-              style: {
-                fontSize: "16px",
-                color: item.isActive
-                  ? COLORS.accent.purple
-                  : COLORS.neutral.dark.darkGray1,
-              },
-            })}
-
-            {/* Text */}
-            <span
-              className="text-base font-medium leading-tight"
-              style={{
-                color: item.isActive
-                  ? COLORS.accent.purple
-                  : COLORS.neutral.dark.darkGray1,
-                fontFamily: TYPOGRAPHY.fontFamily.primary,
-              }}
+        {HEADER_NAV_ITEMS.map((item) => {
+          const active = isActive(item.href);
+          return (
+            <Link
+              key={item.name}
+              href={item.href}
+              className={`
+                flex items-center gap-2 px-6 py-3.5 rounded-[80px]
+                transition-all duration-250 hover:bg-gray-50
+                ${
+                  active
+                    ? "bg-white border border-purple-400"
+                    : "bg-transparent"
+                }
+              `}
             >
-              {item.name}
-            </span>
-          </Link>
-        ))}
+              {/* Icon */}
+              {React.createElement("ion-icon", {
+                name: item.icon,
+                style: {
+                  fontSize: "16px",
+                  color: active
+                    ? COLORS.accent.purple
+                    : COLORS.neutral.dark.darkGray1,
+                },
+              })}
+
+              {/* Text */}
+              <span
+                className="text-base font-medium leading-tight"
+                style={{
+                  color: active
+                    ? COLORS.accent.purple
+                    : COLORS.neutral.dark.darkGray1,
+                  fontFamily: TYPOGRAPHY.fontFamily.primary,
+                }}
+              >
+                {item.name}
+              </span>
+            </Link>
+          );
+        })}
       </nav>
 
       {/* Desktop Auth Section */}
-      <div className="hidden lg:flex items-center gap-6 ml-auto">
+      <div className="hidden lg:flex items-center gap-6">
         {/* Log In Button */}
+        {/* TODO: Could remove boarder and fix hover effect */}
         <Link
           href="/login"
           className="flex items-center px-6 py-3.5 rounded-[80px] transition-all duration-250 hover:opacity-70"
@@ -231,46 +245,49 @@ const Header: React.FC<HeaderProps> = ({ className = "" }) => {
       {isMobileMenuOpen && (
         <div className="lg:hidden absolute top-full left-0 right-0 bg-white border-t border-gray-200 shadow-lg z-50">
           <div className="px-6 py-4">
-            {HEADER_NAV_ITEMS.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className={`
-                  flex items-center gap-3 px-4 py-3 rounded-lg mb-2
-                  transition-all duration-250
-                  ${
-                    item.isActive
-                      ? "bg-purple-50 border border-purple-200"
-                      : "hover:bg-gray-50"
-                  }
-                `}
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {/* Icon */}
-                {React.createElement("ion-icon", {
-                  name: item.icon,
-                  style: {
-                    fontSize: "18px",
-                    color: item.isActive
-                      ? COLORS.accent.purple
-                      : COLORS.neutral.dark.darkGray1,
-                  },
-                })}
-
-                {/* Text */}
-                <span
-                  className="text-base font-medium"
-                  style={{
-                    color: item.isActive
-                      ? COLORS.accent.purple
-                      : COLORS.neutral.dark.darkGray1,
-                    fontFamily: TYPOGRAPHY.fontFamily.primary,
-                  }}
+            {HEADER_NAV_ITEMS.map((item) => {
+              const active = isActive(item.href);
+              return (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className={`
+                    flex items-center gap-3 px-4 py-3 rounded-lg mb-2
+                    transition-all duration-250
+                    ${
+                      active
+                        ? "bg-purple-50 border border-purple-200"
+                        : "hover:bg-gray-50"
+                    }
+                  `}
+                  onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  {item.name}
-                </span>
-              </Link>
-            ))}
+                  {/* Icon */}
+                  {React.createElement("ion-icon", {
+                    name: item.icon,
+                    style: {
+                      fontSize: "18px",
+                      color: active
+                        ? COLORS.accent.purple
+                        : COLORS.neutral.dark.darkGray1,
+                    },
+                  })}
+
+                  {/* Text */}
+                  <span
+                    className="text-base font-medium"
+                    style={{
+                      color: active
+                        ? COLORS.accent.purple
+                        : COLORS.neutral.dark.darkGray1,
+                      fontFamily: TYPOGRAPHY.fontFamily.primary,
+                    }}
+                  >
+                    {item.name}
+                  </span>
+                </Link>
+              );
+            })}
           </div>
         </div>
       )}
