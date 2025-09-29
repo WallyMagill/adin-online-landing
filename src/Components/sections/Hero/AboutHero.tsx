@@ -38,7 +38,8 @@ const AboutHero: React.FC<AboutHeroProps> = ({
           fontFamily: TYPOGRAPHY.fontFamily.primary,
         }}
       >
-        Investing in early<br /> stage ideas building for
+        Investing in early
+        <br /> stage ideas building for
       </h1>
 
       {/* Rotating Category Words Section */}

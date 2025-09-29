@@ -2,6 +2,7 @@
 
 import BackgroundGradient from "@/Components/layout/BackgroundGradient";
 import ChevronDown from "@/Components/layout/ChevronDown";
+import Footer from "@/Components/layout/Footer";
 import Header from "@/Components/layout/Header";
 import AboutHero from "@/Components/sections/Hero/AboutHero";
 import { useRef } from "react";
@@ -39,6 +40,9 @@ export default function Home() {
         </div>
         <BackgroundGradient position="bottom" />
       </section>
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }
