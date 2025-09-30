@@ -1,11 +1,39 @@
+"use client";
+
+import BackgroundGradient from "@/Components/layout/BackgroundGradient";
+import ChevronDown from "@/Components/layout/ChevronDown";
+import Footer from "@/Components/layout/Footer";
 import Header from "@/Components/layout/Header";
+import MemberContent from "@/Components/sections/Content/MemberContent";
+import MemberHero from "@/Components/sections/Hero/MemberHero";
+import { useRef } from "react";
 
-const page = () => {
+export default function Member() {
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  const scrollToContent = () => {
+    contentRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
-    <div>
-      <Header />
-    </div>
-  );
-};
+    <main className="min-h-screen">
+      {/* Hero Section */}
+      <section className="h-screen relative">
+        <Header />
+        <MemberHero />
+        <BackgroundGradient position="bottom" />
+        <ChevronDown onClick={scrollToContent} />
+      </section>
 
-export default page;
+      {/* Content Section */}
+      <section ref={contentRef} className="relative">
+        <BackgroundGradient position="top" />
+        <MemberContent />
+        <BackgroundGradient position="bottom" />
+      </section>
+
+      {/* Footer */}
+      <Footer />
+    </main>
+  );
+}
