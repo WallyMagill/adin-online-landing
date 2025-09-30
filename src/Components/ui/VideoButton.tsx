@@ -28,6 +28,7 @@ export const VideoButton = ({ onClick, className = "" }: VideoButtonProps) => {
           alt=""
           width={32}
           height={32}
+          priority
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-6 h-6 md:w-8 md:h-8 opacity-80"
         />
 

@@ -1,15 +1,20 @@
 import { GRADIENTS } from "@/lib/constants";
 import { BackgroundGradientProps } from "@/types/components";
-import React from "react";
+import React, { useMemo } from "react";
 
 const BackgroundGradient: React.FC<BackgroundGradientProps> = ({
   position,
   className = "",
 }) => {
-  const rainbowGradient = `linear-gradient(${
-    GRADIENTS.rainbow.direction
-  }, ${GRADIENTS.rainbow.colors.join(", ")})`;
-  const verticalFade = GRADIENTS.fade[position];
+  const rainbowGradient = useMemo(
+    () =>
+      `linear-gradient(${
+        GRADIENTS.rainbow.direction
+      }, ${GRADIENTS.rainbow.colors.join(", ")})`,
+    []
+  );
+
+  const verticalFade = useMemo(() => GRADIENTS.fade[position], [position]);
   const positionStyles = position === "top" ? "top-0" : "bottom-0";
 
   return (

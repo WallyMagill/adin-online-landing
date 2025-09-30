@@ -78,6 +78,7 @@ export default function AboutSection1() {
                   alt="Tribute Labs logo"
                   width={24}
                   height={24}
+                  loading="lazy"
                   className="w-6 h-6"
                 />
               </div>

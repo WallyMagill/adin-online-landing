@@ -64,6 +64,7 @@ const Header: React.FC<HeaderProps> = ({ className = "" }) => {
               alt="ADIN Logo"
               width={32}
               height={32}
+              priority
               className="w-full h-full"
             />
           </div>
@@ -75,6 +76,7 @@ const Header: React.FC<HeaderProps> = ({ className = "" }) => {
               alt="ADIN"
               width={80}
               height={32}
+              priority
               className="w-full h-full"
             />
           </div>
@@ -88,6 +90,7 @@ const Header: React.FC<HeaderProps> = ({ className = "" }) => {
               alt="ADIN Logo"
               width={32}
               height={32}
+              priority
               className="w-full h-full"
             />
           </div>

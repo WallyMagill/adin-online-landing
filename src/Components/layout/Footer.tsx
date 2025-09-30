@@ -40,6 +40,7 @@ const Footer: React.FC<FooterProps> = ({ className = "" }) => {
             alt="ADIN Logo"
             width={40}
             height={40}
+            loading="lazy"
             className="w-8 h-8 md:w-8 md:h-8 mb-3"
           />
 
@@ -72,6 +73,7 @@ const Footer: React.FC<FooterProps> = ({ className = "" }) => {
                     alt={social.label}
                     width={20}
                     height={20}
+                    loading="lazy"
                     className="w-4 h-4"
                   />
                 ) : (
