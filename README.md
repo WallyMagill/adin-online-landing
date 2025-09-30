@@ -1,5 +1,6 @@
-// TODO: Check all buttons
-// SPACING NEEDS TO BE THE SAME
+// TODO: FRQ and Invest component buttons.
+// TODO: ivestor section 1 card mobile layout
+
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 

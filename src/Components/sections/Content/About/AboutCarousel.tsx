@@ -1,115 +1,76 @@
 "use client";
 
-import { COLORS, TYPOGRAPHY } from "@/lib/constants";
+import {
+  CAROUSEL_CONFIG,
+  CAROUSEL_SLIDES,
+  COLORS,
+  TYPOGRAPHY,
+} from "@/lib/constants";
+import { CarouselProps } from "@/types/components";
 import { useEffect, useRef, useState } from "react";
 
-interface SlideData {
-  text: string;
-  bold: string;
-  rest: string;
-}
-
-export default function AboutCarousel() {
-  // State management
+export default function AboutCarousel({
+  slides = CAROUSEL_SLIDES,
+  slideDuration = CAROUSEL_CONFIG.slideDuration,
+  progressUpdateInterval = CAROUSEL_CONFIG.progressUpdateInterval,
+}: CarouselProps = {}) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
   const [progress, setProgress] = useState(0);
 
-  // Refs for interval management
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const progressIntervalRef = useRef<NodeJS.Timeout | null>(null);
   const startTimeRef = useRef<number>(Date.now());
 
-  // Slide data
-  const slides: SlideData[] = [
-    {
-      text: "ADIN is a global network of ",
-      bold: "12,302 humans",
-      rest: " sharing insights and knowledge as Investors, Members, & Founders.",
-    },
-    {
-      text: "",
-      bold: "Investors (Human LPs)",
-      rest: " vote on proposed deals, guiding decision-making through collective insights, and over time enabling the fine tuning of models.",
-    },
-    {
-      text: "Our team writes checks for ",
-      bold: "$500k to $2 million",
-      rest: ", partnering with visionary builders in connectivity, compute, crypto, and creative economies.",
-    },
-  ];
-
-  const SLIDE_DURATION = 5000; // 5 seconds
-  const PROGRESS_UPDATE_INTERVAL = 16; // ~60fps for smooth animation
-
   // Auto-play logic
   useEffect(() => {
     if (!isPlaying) {
-      if (intervalRef.current) {
-        clearInterval(intervalRef.current);
-        intervalRef.current = null;
-      }
-      if (progressIntervalRef.current) {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+      if (progressIntervalRef.current)
         clearInterval(progressIntervalRef.current);
-        progressIntervalRef.current = null;
-      }
       return;
     }
 
-    // Start auto-play interval
     intervalRef.current = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
       setProgress(0);
       startTimeRef.current = Date.now();
-    }, SLIDE_DURATION);
+    }, slideDuration);
 
     return () => {
-      if (intervalRef.current) {
-        clearInterval(intervalRef.current);
-        intervalRef.current = null;
-      }
-      if (progressIntervalRef.current) {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+      if (progressIntervalRef.current)
         clearInterval(progressIntervalRef.current);
-        progressIntervalRef.current = null;
-      }
     };
-  }, [isPlaying, slides.length]);
+  }, [isPlaying, slides.length, slideDuration]);
 
-  // Progress animation logic
+  // Progress animation
   useEffect(() => {
     if (!isPlaying) return;
 
     startTimeRef.current = Date.now();
-
     progressIntervalRef.current = setInterval(() => {
       const elapsed = Date.now() - startTimeRef.current;
-      const progressPercent = Math.min((elapsed / SLIDE_DURATION) * 100, 100);
+      const progressPercent = Math.min((elapsed / slideDuration) * 100, 100);
       setProgress(progressPercent);
-    }, PROGRESS_UPDATE_INTERVAL);
+    }, progressUpdateInterval);
 
     return () => {
-      if (progressIntervalRef.current) {
+      if (progressIntervalRef.current)
         clearInterval(progressIntervalRef.current);
-        progressIntervalRef.current = null;
-      }
     };
-  }, [currentSlide, isPlaying]);
+  }, [currentSlide, isPlaying, slideDuration, progressUpdateInterval]);
 
-  // Cleanup on unmount
+  // Cleanup
   useEffect(() => {
     return () => {
-      if (intervalRef.current) {
-        clearInterval(intervalRef.current);
-      }
-      if (progressIntervalRef.current) {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+      if (progressIntervalRef.current)
         clearInterval(progressIntervalRef.current);
-      }
     };
   }, []);
 
-  const togglePlayPause = () => {
-    setIsPlaying(!isPlaying);
-  };
+  const togglePlayPause = () => setIsPlaying(!isPlaying);
 
   const handleKeyDown = (event: React.KeyboardEvent) => {
     switch (event.key) {
@@ -141,7 +102,7 @@ export default function AboutCarousel() {
       onKeyDown={handleKeyDown}
     >
       <div className="max-w-4xl mx-auto">
-        {/* Text Content with Fade Transition */}
+        {/* Slides */}
         <div className="relative min-h-[120px] md:min-h-[140px]">
           <div className="max-w-3xl mx-auto">
             {slides.map((slide, index) => (
@@ -154,12 +115,8 @@ export default function AboutCarousel() {
                 }`}
               >
                 <div
-                  className="text-center"
-                  style={{
-                    fontSize: TYPOGRAPHY.fontSize.xl,
-                    lineHeight: TYPOGRAPHY.lineHeight.normal,
-                    fontFamily: TYPOGRAPHY.fontFamily.primary,
-                  }}
+                  className="text-center text-xl md:text-2xl leading-normal"
+                  style={{ fontFamily: TYPOGRAPHY.fontFamily.primary }}
                 >
                   <span className="text-neutral-400">
                     {slide.text}
@@ -174,27 +131,15 @@ export default function AboutCarousel() {
           </div>
         </div>
 
-        {/* Controls Container */}
+        {/* Controls */}
         <div className="flex items-center justify-center gap-6">
-          {/* Play/Pause Button */}
           <button
             onClick={togglePlayPause}
-            className={`
-              rounded-full
-              flex items-center justify-center
-              transition-all duration-200
-              hover:scale-105
-              focus:outline-none
-            `}
-            style={{
-              backgroundColor: COLORS.neutral.light.light1,
-              width: "2.5rem",
-              height: "2.5rem",
-            }}
+            className="rounded-full flex items-center justify-center w-10 h-10 transition-all duration-200 hover:scale-105"
+            style={{ backgroundColor: COLORS.neutral.light.light1 }}
             aria-label={isPlaying ? "Pause carousel" : "Play carousel"}
           >
             {isPlaying ? (
-              // Pause icon using self-hosted SVG
               <svg
                 className="w-6 h-6 md:w-7 md:h-7"
                 viewBox="0 0 512 512"
@@ -205,7 +150,6 @@ export default function AboutCarousel() {
                 <path d="M352,432H304a16,16,0,0,1-16-16V96a16,16,0,0,1,16-16h48a16,16,0,0,1,16,16V416A16,16,0,0,1,352,432Z" />
               </svg>
             ) : (
-              // Play icon using self-hosted SVG
               <svg
                 className="w-6 h-6 md:w-7 md:h-7"
                 viewBox="0 0 512 512"
@@ -220,29 +164,19 @@ export default function AboutCarousel() {
           {/* Progress Tracker */}
           <div
             className="flex items-center gap-2 px-3 py-2 rounded-full"
-            style={{
-              backgroundColor: COLORS.neutral.light.light1,
-            }}
+            style={{ backgroundColor: COLORS.neutral.light.light1 }}
           >
             {slides.map((_, index) => (
               <div
                 key={index}
-                className={`
-                  rounded-full
-                  transition-all duration-300
-                  relative overflow-hidden
-                  ${
-                    index === currentSlide
-                      ? "w-8 h-2 md:w-10 md:h-2.5"
-                      : "w-2 h-2 md:w-2.5 md:h-2.5"
-                  }
-                `}
-                style={{
-                  backgroundColor: COLORS.neutral.light.light2,
-                }}
+                className={`rounded-full transition-all duration-300 relative overflow-hidden ${
+                  index === currentSlide
+                    ? "w-8 h-2 md:w-10 md:h-2.5"
+                    : "w-2 h-2 md:w-2.5 md:h-2.5"
+                }`}
+                style={{ backgroundColor: COLORS.neutral.light.light2 }}
               >
-                {/* Active slide progress bar */}
-                {index === currentSlide ? (
+                {index === currentSlide && (
                   <div
                     className="h-full rounded-full transition-all duration-75 ease-linear absolute top-0 left-0"
                     style={{
@@ -251,20 +185,11 @@ export default function AboutCarousel() {
                       minWidth: progress > 0 ? "4px" : "0px",
                     }}
                   />
-                ) : null}
+                )}
               </div>
             ))}
           </div>
         </div>
-
-        {/* Desktop Typography Override */}
-        <style jsx>{`
-          @media (min-width: 768px) {
-            .text-center {
-              font-size: ${TYPOGRAPHY.fontSize["2xl"]} !important;
-            }
-          }
-        `}</style>
       </div>
     </div>
   );

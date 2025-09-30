@@ -1,20 +1,26 @@
-// TODO: mobile better integration
-interface InvestSectionProps {
-  title: string;
-}
+import { COLORS, INVEST_SECTION, SECTION_SPACING } from "@/lib/constants";
+import { InvestSectionProps } from "@/types/components";
 
-export default function InvestSection({ title }: InvestSectionProps) {
+export default function InvestSection({
+  title = INVEST_SECTION.title,
+  ctaText = INVEST_SECTION.ctaText,
+  buttonText = INVEST_SECTION.buttonText,
+  waitlistPrefix = INVEST_SECTION.waitlistPrefix,
+  waitlistLink = INVEST_SECTION.waitlistLink,
+}: InvestSectionProps = {}) {
   return (
-    <section className="py-16 md:py-24">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col items-center gap-10">
-        {/* Title */}
-        <h2 className="text-5xl md:text-6xl font-semibold leading-tight md:leading-[64px] text-neutral-900 text-center max-w-4xl">
+    <section className={SECTION_SPACING.padding}>
+      <div
+        className={`${SECTION_SPACING.container} flex flex-col items-center gap-10`}
+      >
+        <h2
+          className={`${SECTION_SPACING.heading.mobile} ${SECTION_SPACING.heading.desktop} ${SECTION_SPACING.heading.styles} text-center max-w-4xl`}
+        >
           {title}
         </h2>
 
         {/* CTA Pill */}
         <div className="w-full md:w-auto md:inline-flex bg-white border border-purple-100 rounded-full pl-6 pr-1 py-1 flex items-center justify-between gap-4 overflow-hidden">
-          {/* Gradient text */}
           <span
             className="text-base font-medium leading-tight"
             style={{
@@ -24,20 +30,24 @@ export default function InvestSection({ title }: InvestSectionProps) {
               backgroundClip: "text",
             }}
           >
-            Early access for Tribute Labs Members
+            {ctaText}
           </span>
-
-          {/* Button */}
-          <button className="px-6 py-3.5 bg-purple-400 rounded-full flex items-center gap-1 text-white text-base font-medium leading-tight hover:bg-purple-500 transition-colors">
-            Get Started →
+          <button
+            className="px-6 py-3.5 rounded-full flex items-center gap-1 text-white text-base font-medium leading-tight hover:bg-purple-500 transition-all duration-200 hover:scale-105"
+            style={{ backgroundColor: COLORS.accent.purple }}
+          >
+            {buttonText}
           </button>
         </div>
 
         {/* Waitlist link */}
         <p className="text-base leading-normal text-center">
-          <span className="text-neutral-600">Not a Tribute Labs Member? </span>
-          <span className="text-purple-400 hover:text-purple-500 cursor-pointer">
-            Join the Waitlist →
+          <span className="text-neutral-600">{waitlistPrefix}</span>
+          <span
+            className="cursor-pointer hover:text-purple-500 transition-colors"
+            style={{ color: COLORS.accent.purple }}
+          >
+            {waitlistLink}
           </span>
         </p>
       </div>
