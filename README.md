@@ -2,6 +2,8 @@
 
 A Next.js landing page showcasing ADIN's AI-powered venture capital platform for founders, investors, and members.
 
+**Live Site:** [https://adin-online-landing.vercel.app/](https://adin-online-landing.vercel.app/)
+
 ## Quick Start
 
 ### Development
@@ -156,9 +158,11 @@ npm run lint
 
 ## Deployment
 
+**Live Production Site:** [https://adin-online-landing.vercel.app/](https://adin-online-landing.vercel.app/)
+
 Deploy to Vercel with one click:
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=YOUR_REPO_URL)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/YOUR_USERNAME/adin-online-landing)
 
 Or manually:
 
