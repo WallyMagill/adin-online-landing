@@ -1,12 +1,12 @@
 "use client";
 
 import BackgroundGradient from "@/Components/layout/BackgroundGradient";
-import ChevronDown from "@/Components/layout/ChevronDown";
 import Footer from "@/Components/layout/Footer";
 import Header from "@/Components/layout/Header";
 import AboutLiveReport from "@/Components/sections/Content/About/AboutLiveReport";
 import AboutContent from "@/Components/sections/Content/AboutContent";
 import AboutHero from "@/Components/sections/Hero/AboutHero";
+import ChevronDown from "@/Components/ui/ChevronDown";
 import { useRef } from "react";
 
 export default function Home() {

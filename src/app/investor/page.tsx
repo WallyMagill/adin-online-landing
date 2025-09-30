@@ -1,11 +1,11 @@
 "use client";
 
 import BackgroundGradient from "@/Components/layout/BackgroundGradient";
-import ChevronDown from "@/Components/layout/ChevronDown";
 import Footer from "@/Components/layout/Footer";
 import Header from "@/Components/layout/Header";
 import InvestorContent from "@/Components/sections/Content/InvestorContent";
 import InvestorHero from "@/Components/sections/Hero/InvestorHero";
+import ChevronDown from "@/Components/ui/ChevronDown";
 import { useRef } from "react";
 
 export default function Investor() {

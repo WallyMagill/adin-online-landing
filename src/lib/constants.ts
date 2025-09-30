@@ -78,6 +78,12 @@ export interface NavItem {
   description?: string;
 }
 
+export interface NavigationItem {
+  name: string;
+  href: string;
+  icon: string;
+}
+
 export interface ButtonVariant {
   background: string;
   backgroundHover: string;
@@ -157,6 +163,29 @@ export const SEMANTIC_COLORS = {
   borderLight: COLORS.neutral.dark.lightGray0,
 } as const;
 
+/**
+ * Gradient configurations for background elements
+ * Rainbow gradient and fade masks
+ */
+export const GRADIENTS = {
+  rainbow: {
+    colors: [
+      COLORS.accent.green, // #49C17A
+      COLORS.accent.yellow, // #FFBF66
+      COLORS.accent.orange, // #FF7A45
+      COLORS.accent.red, // #F3655B
+      COLORS.accent.purple, // #A97DF5
+      COLORS.accent.blue, // #5CCEE5
+    ],
+    direction: "to right",
+  },
+  fade: {
+    top: "linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 40%, rgba(0,0,0,0) 100%)",
+    bottom:
+      "linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.3) 60%, rgba(0,0,0,0.6) 100%)",
+  },
+} as const;
+
 // =============================================================================
 // TYPOGRAPHY
 // =============================================================================
@@ -225,6 +254,84 @@ export const NAV_ITEMS: NavItem[] = [
     description: "Resources for founders",
   },
 ] as const;
+
+/**
+ * Header navigation items with icons
+ * Used specifically in the Header component
+ */
+export const HEADER_NAV_ITEMS = [
+  {
+    name: "About",
+    href: "/",
+    icon: "information-circle",
+  },
+  {
+    name: "Investors",
+    href: "/investor",
+    icon: "cash",
+  },
+  {
+    name: "Members",
+    href: "/member",
+    icon: "people",
+  },
+  {
+    name: "Founders",
+    href: "/founder",
+    icon: "construct",
+  },
+] as const;
+
+/**
+ * Footer navigation sections with icons
+ * Organized by category for the footer layout
+ */
+export const FOOTER_NAV_SECTIONS = [
+  {
+    title: "ADIN for",
+    icon: "people",
+    links: [
+      { label: "Investors", href: "/investor" },
+      { label: "Members", href: "/member" },
+      { label: "Founders", href: "/founder" },
+    ],
+  },
+  {
+    title: "Resources",
+    icon: "shield-checkmark",
+    links: [
+      { label: "Terms of Service", href: "/terms" },
+      { label: "Privacy Policy", href: "/privacy" },
+    ],
+  },
+] as const;
+
+/**
+ * Footer social links
+ * External links and contact methods
+ */
+export const FOOTER_SOCIAL_LINKS = [
+  {
+    label: "X (Twitter)",
+    href: "https://twitter.com/adin",
+    icon: "/assets/images/Vector.svg",
+  },
+  {
+    label: "Email",
+    href: "mailto:contact@adin.com",
+    icon: "mail",
+  },
+] as const;
+
+/**
+ * Footer company information
+ * Static text content for footer
+ */
+export const FOOTER_COMPANY_INFO = {
+  description:
+    "ADIN was designed and developed by Tribute Labs in Brooklyn, NY.",
+  copyright: "© 2025 Tribute Labs, Inc.",
+} as const;
 
 // =============================================================================
 // ICONS
@@ -433,8 +540,13 @@ export const LAYOUT = {
 export default {
   COLORS,
   SEMANTIC_COLORS,
+  GRADIENTS,
   TYPOGRAPHY,
   NAV_ITEMS,
+  HEADER_NAV_ITEMS,
+  FOOTER_NAV_SECTIONS,
+  FOOTER_SOCIAL_LINKS,
+  FOOTER_COMPANY_INFO,
   ICONS,
   ICON_SIZES,
   ASSETS,

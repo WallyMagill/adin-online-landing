@@ -1,11 +1,11 @@
 "use client";
 
 import BackgroundGradient from "@/Components/layout/BackgroundGradient";
-import ChevronDown from "@/Components/layout/ChevronDown";
 import Footer from "@/Components/layout/Footer";
 import Header from "@/Components/layout/Header";
 import FounderContent from "@/Components/sections/Content/FounderContent";
 import FounderHero from "@/Components/sections/Hero/FounderHero";
+import ChevronDown from "@/Components/ui/ChevronDown";
 import { useRef } from "react";
 
 export default function Founder() {
