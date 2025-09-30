@@ -12,8 +12,8 @@ export const DealSubmitCard = ({
     <div
       className="mt-10 rounded-3xl p-10"
       style={{
-        backgroundColor: "rgba(225, 209, 250, 0.15)",
-        border: "1px solid #E1D1FA",
+        backgroundColor: `${COLORS.neutral.light.light2}26`, // 15% opacity
+        border: `1px solid ${COLORS.neutral.light.light2}`,
       }}
     >
       {/* Search Bar */}

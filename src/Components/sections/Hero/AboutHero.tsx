@@ -12,18 +12,10 @@ import { AboutHeroProps } from "@/types/components";
 import { useState } from "react";
 
 const AboutHero = ({ onVideoClick, className = "" }: AboutHeroProps) => {
-  const [hoveredWord, setHoveredWord] = useState<string | null>(null);
-  const [clickedWord, setClickedWord] = useState<string | null>(null);
-
-  // Determine which word should be selected (clicked takes precedence over hover)
-  const selectedWord = clickedWord || hoveredWord || "biotech";
+  const [selectedWord, setSelectedWord] = useState<string>("biotech");
 
   const handleWordClick = (word: string) => {
-    setClickedWord(clickedWord === word ? null : word);
-  };
-
-  const handleWordHover = (word: string | null) => {
-    if (!clickedWord) setHoveredWord(word);
+    setSelectedWord(word);
   };
 
   return (
@@ -32,7 +24,7 @@ const AboutHero = ({ onVideoClick, className = "" }: AboutHeroProps) => {
     >
       {/* Hero Heading */}
       <h1
-        className="text-3xl md:text-4xl lg:text-5xl font-bold text-center max-w-2xl leading-tight mb-4 md:mb-6"
+        className="text-4xl lg:text-6xl font-bold text-center max-w-3xl leading-tight mb-2 md:mb-6"
         style={{
           color: COLORS.base.black,
           fontFamily: TYPOGRAPHY.fontFamily.primary,
@@ -43,7 +35,7 @@ const AboutHero = ({ onVideoClick, className = "" }: AboutHeroProps) => {
         {HERO_CONTENT.heading.line2}
       </h1>
 
-      {/* Category Words - Mobile (3 words) */}
+      {/* Category Words - Mobile (all words vertically stacked with auto-cycle) */}
       <CategoryWords
         words={HERO_CATEGORIES}
         selectedWord={selectedWord}
@@ -51,18 +43,17 @@ const AboutHero = ({ onVideoClick, className = "" }: AboutHeroProps) => {
         isMobile={true}
       />
 
-      {/* Category Words - Desktop (all words) */}
+      {/* Category Words - Desktop (all words horizontally) */}
       <CategoryWords
         words={HERO_CATEGORIES}
         selectedWord={selectedWord}
         onWordClick={handleWordClick}
-        onWordHover={handleWordHover}
         isMobile={false}
       />
 
-      {/* Description */}
+      {/* Description - Hidden on mobile, shown on desktop */}
       <p
-        className="text-lg md:text-xl text-center max-w-xl mt-2 md:mt-4 mb-4"
+        className="hidden md:block text-lg md:text-xl text-center max-w-xl mt-2 md:mt-4 mb-4"
         style={{
           color: COLORS.neutral.dark.darkGray1,
           fontFamily: TYPOGRAPHY.fontFamily.primary,
@@ -72,7 +63,7 @@ const AboutHero = ({ onVideoClick, className = "" }: AboutHeroProps) => {
       </p>
 
       {/* Video Button */}
-      <VideoButton onClick={onVideoClick} className="mt-8 md:mt-10" />
+      <VideoButton onClick={onVideoClick} className="mt-6 md:mt-10" />
     </section>
   );
 };

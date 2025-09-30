@@ -5,7 +5,7 @@
  */
 
 import { IonIcon } from "@/Components/icons";
-import { ASSETS, COLORS, HERO_CONTENT, TYPOGRAPHY } from "@/lib/constants";
+import { ASSETS, COLORS, HERO_CONTENT } from "@/lib/constants";
 import { VideoButtonProps } from "@/types/components";
 import Image from "next/image";
 
@@ -13,7 +13,7 @@ export const VideoButton = ({ onClick, className = "" }: VideoButtonProps) => {
   return (
     <button
       onClick={onClick}
-      className={`inline-flex items-center gap-4 pl-2 pr-8 py-1.5 md:pl-2 md:pr-10 md:py-2 rounded-2xl hover:opacity-90 transition-opacity duration-300 cursor-pointer ${className}`}
+      className={`inline-flex items-center gap-4 pl-2 pr-8 py-1.5 md:pl-2 md:pr-10 md:py-2 rounded-2xl transition-transform duration-200 hover:scale-105 active:scale-95 cursor-pointer ${className}`}
       style={{ backgroundColor: COLORS.accent.cream }}
       aria-label={HERO_CONTENT.videoButton.ariaLabel}
     >
@@ -44,11 +44,10 @@ export const VideoButton = ({ onClick, className = "" }: VideoButtonProps) => {
       <span
         className="text-base md:text-lg font-medium"
         style={{
-          background: "radial-gradient(circle, #000000 0%, #B3B3B3 100%)",
+          background: `radial-gradient(circle, ${COLORS.base.black} 0%, ${COLORS.neutral.dark.lightGray2} 100%)`,
           WebkitBackgroundClip: "text",
           WebkitTextFillColor: "transparent",
           backgroundClip: "text",
-          fontFamily: TYPOGRAPHY.fontFamily.primary,
         }}
       >
         {HERO_CONTENT.videoButton.text}
