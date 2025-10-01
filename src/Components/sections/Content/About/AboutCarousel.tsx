@@ -95,7 +95,7 @@ export default function AboutCarousel({
 
   return (
     <div
-      className="w-full px-6 py-12 md:px-12 md:py-16"
+      className="w-full px-6 py-8 pb-16 md:px-12 md:py-16"
       role="region"
       aria-label="About carousel"
       tabIndex={0}
@@ -103,12 +103,12 @@ export default function AboutCarousel({
     >
       <div className="max-w-4xl mx-auto">
         {/* Slides */}
-        <div className="relative min-h-[120px] md:min-h-[140px]">
-          <div className="max-w-3xl mx-auto">
+        <div className="relative h-[120px] md:h-[140px]">
+          <div className="max-w-3xl mx-auto h-full">
             {slides.map((slide, index) => (
               <div
                 key={index}
-                className={`transition-opacity duration-500 ${
+                className={`transition-opacity duration-500 h-full flex items-center justify-center ${
                   index === currentSlide
                     ? "opacity-100"
                     : "opacity-0 absolute inset-0"
@@ -132,7 +132,7 @@ export default function AboutCarousel({
         </div>
 
         {/* Controls */}
-        <div className="flex items-center justify-center gap-6">
+        <div className="flex items-center justify-center gap-6 mt-8 md:mt-6">
           <button
             onClick={togglePlayPause}
             className="rounded-full flex items-center justify-center w-10 h-10 transition-all duration-200 hover:scale-105"
