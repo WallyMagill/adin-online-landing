@@ -24,7 +24,7 @@ const AboutHero = ({ onVideoClick, className = "" }: AboutHeroProps) => {
     >
       {/* Hero Heading */}
       <h1
-        className="text-4xl lg:text-6xl font-bold text-center max-w-3xl leading-tight mb-2 md:mb-6"
+        className="text-4xl lg:text-6xl font-bold text-center w-full max-w-none md:max-w-3xl leading-tight mb-2 md:mb-6"
         style={{
           color: COLORS.base.black,
           fontFamily: TYPOGRAPHY.fontFamily.primary,
