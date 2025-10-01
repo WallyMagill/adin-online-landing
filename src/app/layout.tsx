@@ -64,6 +64,9 @@ export default function RootLayout({
           name="viewport"
           content="width=device-width, initial-scale=1, viewport-fit=cover"
         />
+        {/* Force light mode */}
+        <meta name="color-scheme" content="light only" />
+        <meta name="theme-color" content="#ffffff" />
         {/* Preconnect to external domains */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
