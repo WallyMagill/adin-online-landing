@@ -44,7 +44,7 @@ const InvestorHero: React.FC = () => {
             </p>
 
             <div
-              className={`flex flex-row ${HERO_SPACING.buttonGap} mb-2 md:mb-8`}
+              className={`flex flex-row ${HERO_SPACING.buttonGap} -mb-2 md:mb-8`}
             >
               <CTAButton
                 text={INVESTOR_HERO.cta.text}

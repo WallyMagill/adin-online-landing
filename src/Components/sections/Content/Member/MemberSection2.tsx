@@ -156,7 +156,12 @@ export default function MemberSection2() {
 
                   <div className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 md:top-20 md:translate-y-0 flex items-center gap-8 md:gap-14">
                     {cards.privateNetwork.members.map((member, index) => (
-                      <MemberProfileCard key={index} {...member} />
+                      <div
+                        key={index}
+                        className={index === 1 ? "block" : "hidden md:block"}
+                      >
+                        <MemberProfileCard {...member} />
+                      </div>
                     ))}
                   </div>
                 </div>

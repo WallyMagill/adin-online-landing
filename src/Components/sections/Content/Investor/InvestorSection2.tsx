@@ -37,7 +37,7 @@ export default function InvestorSection2() {
                 {cards.network.description}
               </p>
             </div>
-            <div className="flex-1 relative h-[300px] lg:h-auto min-h-[300px]">
+            <div className="flex-1 relative h-[160px] md:h-[300px] lg:h-auto min-h-[160px] md:min-h-[300px]">
               <Image
                 src={cards.network.image}
                 alt="Private investor network"

@@ -10,7 +10,9 @@ export const InvestorAgentCard = ({ agent }: InvestorAgentCardProps) => {
       >
         <Image src={agent.icon} alt={agent.name} width={20} height={20} />
       </div>
-      <span className="text-xl font-semibold text-black">{agent.name}</span>
+      <span className="text-sm md:text-xl font-semibold text-black">
+        {agent.name}
+      </span>
     </div>
   );
 };
