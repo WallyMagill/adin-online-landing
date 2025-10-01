@@ -18,7 +18,7 @@ export default function Investor() {
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
-      <section className="h-screen relative">
+      <section className="min-h-screen relative">
         <Header />
         <InvestorHero />
         <BackgroundGradient position="bottom" />

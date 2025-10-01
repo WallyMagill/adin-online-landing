@@ -23,7 +23,7 @@ export const CategoryWords = ({
       const currentIndex = words.findIndex((w) => w.text === selectedWord);
       const nextIndex = (currentIndex + 1) % words.length;
       onWordClick(words[nextIndex].text);
-    }, 2000); // Change word every 2 seconds
+    }, 3000); // Change word every 3 seconds (slower to reduce jumping)
 
     return () => clearInterval(interval);
   }, [selectedWord, words, onWordClick]);

@@ -21,8 +21,8 @@ export default function Home() {
 
   return (
     <div className="relative w-full overflow-x-hidden">
-      {/* Hero Section - Full viewport height */}
-      <section className="relative h-screen flex flex-col w-full">
+      {/* Hero Section - Mobile-friendly height */}
+      <section className="relative min-h-screen flex flex-col w-full">
         <Header />
 
         <div className="flex-1 flex items-start justify-center pt-4 md:items-center md:pt-0">

@@ -137,24 +137,28 @@ const Header: React.FC<HeaderProps> = ({ className = "" }) => {
       </div>
 
       {/* Mobile Navigation Menu */}
-      {isMobileMenuOpen && (
-        <div className="lg:hidden absolute top-full left-0 right-0 bg-white border-t border-gray-200 shadow-lg z-50">
-          <div className="px-6 py-4">
-            {HEADER_NAV_ITEMS.map((item) => {
-              const active = isActive(item.href);
-              return (
-                <NavigationItem
-                  key={item.name}
-                  item={item}
-                  isActive={active}
-                  isMobile={true}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                />
-              );
-            })}
-          </div>
+      <div
+        className={`lg:hidden absolute top-full left-0 right-0 bg-white border-t border-gray-200 shadow-lg z-50 transition-all duration-200 ease-in-out ${
+          isMobileMenuOpen
+            ? "opacity-100 visible translate-y-0"
+            : "opacity-0 invisible -translate-y-2 pointer-events-none"
+        }`}
+      >
+        <div className="px-6 py-4">
+          {HEADER_NAV_ITEMS.map((item) => {
+            const active = isActive(item.href);
+            return (
+              <NavigationItem
+                key={item.name}
+                item={item}
+                isActive={active}
+                isMobile={true}
+                onClick={() => setIsMobileMenuOpen(false)}
+              />
+            );
+          })}
         </div>
-      )}
+      </div>
     </header>
   );
 };

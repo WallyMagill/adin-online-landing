@@ -59,6 +59,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* Viewport meta tag for mobile responsiveness */}
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, viewport-fit=cover"
+        />
         {/* Preconnect to external domains */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link

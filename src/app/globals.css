@@ -24,6 +24,32 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Prevent layout shifts and improve mobile stability */
+@media (max-width: 768px) {
+  html {
+    scroll-behavior: auto; /* Disable smooth scroll on mobile to prevent jumping */
+  }
+
+  /* Prevent viewport height issues on mobile */
+  body {
+    min-height: 100vh;
+    min-height: 100dvh; /* Use dynamic viewport height for better mobile support */
+  }
+
+  /* Prevent text size adjustment on mobile */
+  * {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  /* Prevent zoom on focus for input elements */
+  input,
+  select,
+  textarea {
+    font-size: 16px;
+  }
+}
+
 @keyframes float {
   0%,
   100% {

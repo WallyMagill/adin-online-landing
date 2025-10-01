@@ -18,7 +18,7 @@ export default function Founder() {
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
-      <section className="h-screen relative">
+      <section className="min-h-screen relative">
         <Header />
         <FounderHero />
         <BackgroundGradient position="bottom" />
