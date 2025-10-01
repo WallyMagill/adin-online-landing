@@ -90,14 +90,14 @@ export default function InvestorSection2() {
             </p>
 
             <div
-              className="mt-10 rounded-[32px] p-10 relative overflow-hidden h-[604px] flex items-center justify-center"
+              className="mt-10 rounded-[32px] p-4 md:p-10 relative overflow-hidden h-[340px] md:h-[604px] flex items-center justify-center"
               style={{
                 background: `linear-gradient(180deg, ${COLORS.accent.yellow} 0%, rgba(255, 191, 102, 0.3) 100%)`,
               }}
             >
-              {/* Background cards */}
+              {/* Background cards - hidden on mobile */}
               <div
-                className="absolute w-[320px] rounded-3xl overflow-hidden bg-white"
+                className="hidden md:block absolute w-[320px] rounded-3xl overflow-hidden bg-white"
                 style={{
                   height: "385px",
                   transform: "rotate(-8deg) translate(-12px, -18px)",
@@ -114,7 +114,7 @@ export default function InvestorSection2() {
               </div>
 
               <div
-                className="absolute w-[320px] rounded-3xl overflow-hidden bg-white"
+                className="hidden md:block absolute w-[320px] rounded-3xl overflow-hidden bg-white"
                 style={{
                   height: "385px",
                   transform: "rotate(-4deg) translate(-6px, -9px)",

@@ -37,19 +37,31 @@ export default function InvestSection({
             style={{ backgroundColor: COLORS.accent.purple }}
           >
             {buttonText}
+            <span className="hidden md:inline">→</span>
           </button>
         </div>
 
         {/* Waitlist link */}
-        <p className="text-base leading-normal text-center">
-          <span className="text-neutral-600">{waitlistPrefix}</span>
-          <span
-            className="cursor-pointer hover:text-purple-500 transition-colors"
-            style={{ color: COLORS.accent.purple }}
-          >
-            {waitlistLink}
-          </span>
-        </p>
+        <div className="text-base leading-normal text-center">
+          <div className="md:hidden">
+            <div className="text-neutral-600">{waitlistPrefix}</div>
+            <div
+              className="cursor-pointer hover:text-purple-500 transition-colors"
+              style={{ color: COLORS.accent.purple }}
+            >
+              {waitlistLink}
+            </div>
+          </div>
+          <p className="hidden md:block">
+            <span className="text-neutral-600">{waitlistPrefix}</span>
+            <span
+              className="cursor-pointer hover:text-purple-500 transition-colors"
+              style={{ color: COLORS.accent.purple }}
+            >
+              {waitlistLink}
+            </span>
+          </p>
+        </div>
       </div>
     </section>
   );

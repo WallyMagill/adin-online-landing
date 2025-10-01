@@ -9,15 +9,15 @@ export default function MemberSection3() {
   return (
     <section className={SECTION_SPACING.padding}>
       <div className={SECTION_SPACING.container}>
-        <div className="flex items-start gap-44 w-full">
+        <div className="flex flex-col md:flex-row items-start gap-10 md:gap-44 w-full">
           {/* Left Column - Steps */}
-          <div className="flex flex-col gap-10">
+          <div className="flex flex-col gap-6 md:gap-10 w-full md:w-auto">
             {/* Header */}
-            <div className="flex flex-col gap-4 max-w-[453px]">
-              <h2 className="text-6xl font-semibold leading-[64px]">
+            <div className="flex flex-col gap-4 w-full md:max-w-[453px]">
+              <h2 className="text-4xl md:text-6xl font-semibold leading-tight md:leading-[64px]">
                 {heading}
               </h2>
-              <p className="text-xl leading-loose">{subheading}</p>
+              <p className="text-lg md:text-xl leading-loose">{subheading}</p>
             </div>
 
             {/* Steps */}
@@ -34,7 +34,7 @@ export default function MemberSection3() {
 
           {/* Right Column - Logo */}
           <div
-            className="w-[480px] h-[480px] relative rounded-[32px] overflow-hidden flex items-center justify-center ml-auto"
+            className="hidden md:flex w-[480px] h-[480px] relative rounded-[32px] overflow-hidden items-center justify-center ml-auto"
             style={{ backgroundColor: logoBgColor }}
           >
             <Image

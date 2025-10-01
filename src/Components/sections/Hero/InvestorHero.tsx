@@ -43,7 +43,9 @@ const InvestorHero: React.FC = () => {
               {INVESTOR_HERO.description}
             </p>
 
-            <div className={`flex flex-row ${HERO_SPACING.buttonGap} mb-8`}>
+            <div
+              className={`flex flex-row ${HERO_SPACING.buttonGap} mb-2 md:mb-8`}
+            >
               <CTAButton
                 text={INVESTOR_HERO.cta.text}
                 href={INVESTOR_HERO.cta.href}
@@ -66,7 +68,7 @@ const InvestorHero: React.FC = () => {
 
               {/* Voting Card */}
               <div
-                className="absolute top-12 left-16 w-64 p-3 rounded-[32px] flex flex-col gap-2"
+                className="absolute top-10 left-14 w-56 p-2 rounded-[32px] flex flex-col gap-1"
                 style={{
                   backgroundColor: "rgba(255,255,255,0.9)",
                   border: `1px solid ${COLORS.neutral.dark.lightGray1}`,

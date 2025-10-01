@@ -19,7 +19,7 @@ export const ProcessStep = ({ step, isLast = false }: ProcessStepProps) => {
         </div>
 
         {/* Right side - Content */}
-        <div className="w-[453px] flex flex-col gap-6">
+        <div className="w-full md:w-[453px] flex flex-col gap-6">
           <span className="text-base font-medium">Step {step.number}</span>
           <div className="flex flex-col gap-2">
             <h3 className="text-xl font-semibold leading-7">{step.title}</h3>

@@ -14,7 +14,7 @@ export default function FounderSection1() {
       >
         {/* Header */}
         <div className="flex flex-col items-center gap-4 w-full">
-          <h2 className="text-6xl font-semibold leading-[64px] text-center">
+          <h2 className="text-4xl md:text-6xl font-semibold leading-tight md:leading-[64px] text-center">
             {heading.line1}
             <br />
             {heading.line2}
@@ -29,7 +29,7 @@ export default function FounderSection1() {
         {/* Bento Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
           {/* Deck Feedback Card */}
-          <div className="px-10 pt-14 pb-10 bg-white/80 rounded-[32px] border border-neutral-200 backdrop-blur-sm flex flex-col gap-10">
+          <div className="px-10 pt-8 md:pt-14 pb-6 md:pb-10 bg-white/80 rounded-[32px] border border-neutral-200 backdrop-blur-sm flex flex-col gap-6 md:gap-10">
             <div className="flex flex-col gap-4">
               <p className="text-base font-medium">
                 {cards.deckFeedback.badge}
@@ -52,7 +52,7 @@ export default function FounderSection1() {
 
           {/* Pitch Practice Card */}
           <div className="px-10 pt-14 pb-10 bg-white/80 rounded-[32px] border border-neutral-200 backdrop-blur-sm flex flex-col gap-10">
-            <div className="relative h-[400px] md:h-[604px] rounded-[32px] overflow-hidden">
+            <div className="relative h-[280px] md:h-[604px] rounded-[32px] overflow-hidden">
               <div
                 className="absolute inset-0 rounded-[32px]"
                 style={{
@@ -63,7 +63,7 @@ export default function FounderSection1() {
                 className="absolute w-[777px] h-[777px] -left-32 -top-[263px] rounded-full blur-[210px]"
                 style={{ backgroundColor: cards.pitchPractice.bgColor }}
               />
-              <div className="absolute left-1/2 -translate-x-1/2 top-0 w-[280px] md:w-[420px]">
+              <div className="absolute left-1/2 -translate-x-1/2 top-0 w-[200px] md:w-[420px]">
                 <Image
                   src={cards.pitchPractice.image}
                   alt="Pitch practice"
@@ -125,7 +125,7 @@ export default function FounderSection1() {
               </div>
             </div>
 
-            <div className="relative h-[604px] rounded-[32px] border border-purple-100 overflow-hidden">
+            <div className="relative h-[480px] md:h-[604px] rounded-[32px] border border-purple-100 overflow-hidden">
               <div
                 className="absolute inset-0 rounded-[32px]"
                 style={{
@@ -138,7 +138,7 @@ export default function FounderSection1() {
               />
 
               {/* Investor cards stack */}
-              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 scale-75 md:scale-100 md:left-[46px] md:top-[-116px] md:translate-x-0 md:translate-y-0 w-96 flex flex-col gap-6">
+              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 scale-[0.55] md:scale-100 md:left-[46px] md:top-[-116px] md:translate-x-0 md:translate-y-0 w-96 flex flex-col gap-3 md:gap-6">
                 {cards.pitchToCapital.investors.map((investor, index) => (
                   <InvestorOfferCard key={index} investor={investor} />
                 ))}

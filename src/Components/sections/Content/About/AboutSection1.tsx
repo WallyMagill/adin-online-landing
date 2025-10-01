@@ -55,7 +55,7 @@ export default function AboutSection1() {
           </div>
 
           {/* Humans Card */}
-          <div className="bg-white/80 border border-neutral-200 rounded-[32px] backdrop-blur-sm h-[648px] overflow-hidden">
+          <div className="bg-white/80 border border-neutral-200 rounded-[32px] backdrop-blur-sm h-[480px] md:h-[648px] overflow-hidden">
             <div className="p-10 pb-6">
               <p className="text-xl font-semibold leading-7 text-neutral-900 mb-1">
                 {ABOUT_SECTION1.cards.humans.supportedBy}

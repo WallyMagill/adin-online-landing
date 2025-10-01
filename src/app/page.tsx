@@ -25,7 +25,7 @@ export default function Home() {
       <section className="relative h-screen flex flex-col w-full">
         <Header />
 
-        <div className="flex-1 flex items-center justify-center">
+        <div className="flex-1 flex items-start justify-center pt-4 md:items-center md:pt-0">
           <AboutHero onVideoClick={() => console.log("Video clicked")} />
         </div>
 

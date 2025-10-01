@@ -12,7 +12,7 @@ import Image from "next/image";
 export const VoteCard = ({ item, onClick }: VoteCardProps) => {
   return (
     <div
-      className="flex items-center justify-between p-3 md:p-4 rounded-2xl bg-white border cursor-pointer transition-all duration-200 hover:shadow-md hover:scale-[1.01]"
+      className="flex items-center justify-between p-2 md:p-4 rounded-2xl bg-white border cursor-pointer transition-all duration-200 hover:shadow-md hover:scale-[1.01]"
       style={{ borderColor: COLORS.neutral.dark.lightGray1 }}
       role="button"
       tabIndex={0}
@@ -52,7 +52,7 @@ export const VoteCard = ({ item, onClick }: VoteCardProps) => {
           )}
         </div>
         <span
-          className="font-bold text-xl"
+          className="font-bold text-lg md:text-xl"
           style={{
             color: COLORS.base.black,
             fontFamily: TYPOGRAPHY.fontFamily.primary,
@@ -65,7 +65,7 @@ export const VoteCard = ({ item, onClick }: VoteCardProps) => {
       {/* Right: Vote status */}
       <div className="flex items-center gap-2">
         <span
-          className="font-medium text-base"
+          className="font-medium text-sm md:text-base"
           style={{
             color: COLORS.base.black,
             fontFamily: TYPOGRAPHY.fontFamily.primary,

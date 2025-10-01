@@ -32,9 +32,10 @@ export const DealSubmitCard = ({
           />
         </div>
         <div className="flex items-center gap-2">
-          <IonIcon name="close-outline" size={24} />
+          <IonIcon name="close-outline" size={24} className="md:hidden" />
+          <IonIcon name="close-outline" size={24} className="hidden md:block" />
           <button
-            className="px-4 py-2 rounded-full text-white text-sm"
+            className="hidden md:block px-4 py-2 rounded-full text-white text-sm"
             style={{ backgroundColor: COLORS.accent.purple }}
           >
             Submit

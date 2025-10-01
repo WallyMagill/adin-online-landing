@@ -6,7 +6,7 @@ import Image from "next/image";
 export const DealFlowCard = ({ company }: DealFlowCardProps) => {
   return (
     <div
-      className="relative w-[320px] bg-white rounded-3xl overflow-hidden"
+      className="relative w-[360px] md:w-[320px] bg-white rounded-3xl overflow-hidden"
       style={{
         border: `1px solid ${COLORS.neutral.dark.lightGray1}`,
         zIndex: 10,
@@ -45,12 +45,12 @@ export const DealFlowCard = ({ company }: DealFlowCardProps) => {
             </div>
             <h4 className="text-xl font-semibold">{company.name}</h4>
           </div>
-          <IonIcon name="globe-outline" size={20} />
+          <IonIcon name="globe-outline" size={20} className="hidden md:block" />
         </div>
 
         {/* Description */}
         <p
-          className="text-sm mt-2 leading-snug"
+          className="text-sm mt-2 leading-snug hidden md:block"
           style={{ color: COLORS.neutral.dark.darkGray1 }}
         >
           {company.description}

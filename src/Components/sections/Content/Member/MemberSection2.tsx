@@ -41,7 +41,7 @@ export default function MemberSection2() {
                 </div>
 
                 {/* Visual - Deal Cards */}
-                <div className="relative h-96 rounded-[32px] overflow-hidden">
+                <div className="relative h-50 md:h-96 rounded-[32px] overflow-hidden">
                   <div
                     className="absolute inset-0 rounded-[32px]"
                     style={{
@@ -54,10 +54,10 @@ export default function MemberSection2() {
                   />
 
                   {/* Card stack wrapper */}
-                  <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 md:left-[87px] md:top-[67px] md:translate-x-0 md:translate-y-0 w-60 md:w-80 h-48 md:h-64">
-                    {/* Back Card (Sona - Purple) */}
+                  <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 md:left-[87px] md:top-[67px] md:translate-x-0 md:translate-y-0 w-56 md:w-80 h-44 md:h-64">
+                    {/* Back Card (Sona - Purple) - hidden on mobile */}
                     <div
-                      className="absolute w-60 md:w-80 h-45 md:h-60 top-[18px] md:top-[25px] rounded-3xl overflow-hidden transform -rotate-[4.54deg] origin-top-left"
+                      className="hidden md:block absolute w-60 md:w-80 h-45 md:h-60 top-[18px] md:top-[25px] rounded-3xl overflow-hidden transform -rotate-[4.54deg] origin-top-left"
                       style={{
                         backgroundColor: cards.earnCarry.companies[0].bgColor,
                       }}
@@ -79,7 +79,7 @@ export default function MemberSection2() {
                     </div>
 
                     {/* Front Card (Lane AI) */}
-                    <div className="absolute w-60 md:w-80 h-45 md:h-60 top-[9px] md:top-[12px] bg-neutral-950 rounded-3xl overflow-hidden">
+                    <div className="absolute w-56 md:w-80 h-44 md:h-60 top-[4px] md:top-[12px] bg-neutral-950 rounded-3xl overflow-hidden">
                       {/* Background image */}
                       <Image
                         src={cards.earnCarry.companies[1].image!}
@@ -99,12 +99,13 @@ export default function MemberSection2() {
                       </div>
 
                       {/* Center icon wrapper */}
-                      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-lime-950 rounded-full flex items-center justify-center">
+                      <div className="absolute top-4 right-4 md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 w-10 h-10 md:w-16 md:h-16 bg-lime-950 rounded-full flex items-center justify-center">
                         <Image
                           src={cards.earnCarry.companies[1].icon!}
                           alt="Icon"
-                          width={40}
-                          height={40}
+                          width={20}
+                          height={20}
+                          className="md:w-[40px] md:h-[40px]"
                           style={{
                             filter:
                               "brightness(0) saturate(100%) invert(54%) sepia(96%) saturate(1559%) hue-rotate(88deg) brightness(101%) contrast(89%)",
@@ -141,7 +142,7 @@ export default function MemberSection2() {
                 </div>
 
                 {/* Visual - Member Cards */}
-                <div className="relative h-96 rounded-[32px] overflow-hidden">
+                <div className="relative h-48 md:h-96 rounded-[32px] overflow-hidden">
                   <div
                     className="absolute inset-0 rounded-[32px]"
                     style={{
@@ -153,7 +154,7 @@ export default function MemberSection2() {
                     style={{ backgroundColor: COLORS.accent.yellow }}
                   />
 
-                  <div className="absolute left-1/2 -translate-x-1/2 top-20 flex items-center gap-14">
+                  <div className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 md:top-20 md:translate-y-0 flex items-center gap-8 md:gap-14">
                     {cards.privateNetwork.members.map((member, index) => (
                       <MemberProfileCard key={index} {...member} />
                     ))}
@@ -181,7 +182,7 @@ export default function MemberSection2() {
                     alt="iPhone"
                     width={400}
                     height={600}
-                    className="object-contain w-full h-full"
+                    className="object-cover w-full h-full md:object-contain md:w-full md:h-full"
                   />
                 </div>
               </div>

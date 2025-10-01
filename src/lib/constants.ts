@@ -891,10 +891,10 @@ export const INVESTMENT_STAGES = [
   },
   {
     id: "a-round",
-    label: "A Round",
+    label: "A-Round",
     title: "Early, Not Late",
     description:
-      "We don't chase momentum—we help create it. ADIN's A-round capital supports early traction and sharp execution, before the noise of growth-stage hype.",
+      "We don't chase momentum—we help create it. ADIN's A-Round capital supports early traction and sharp execution, before the noise of growth-stage hype.",
     accentColor: COLORS.accent.purple,
   },
 ] as const;
@@ -974,7 +974,7 @@ export const FAQ_CONFIG = {
 export const INVEST_SECTION = {
   title: "Invest with ADIN.",
   ctaText: "Early access for Tribute Labs Members",
-  buttonText: "Get Started →",
+  buttonText: "Get Started",
   waitlistPrefix: "Not a Tribute Labs Member? ",
   waitlistLink: "Join the Waitlist →",
 } as const;

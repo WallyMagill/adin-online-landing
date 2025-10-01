@@ -18,7 +18,7 @@ export const FeaturedStartupCard = ({
 }: FeaturedStartupCardProps) => {
   return (
     <div
-      className={`relative w-64 h-48 md:w-80 md:h-60 rounded-3xl overflow-hidden ${className}`}
+      className={`relative w-56 h-40 md:w-80 md:h-60 rounded-3xl overflow-hidden ${className}`}
       style={{ backgroundColor: COLORS.neutral.dark.lightGray1 }}
     >
       {/* Background Image */}

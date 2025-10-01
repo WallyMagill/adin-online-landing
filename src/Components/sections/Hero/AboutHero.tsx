@@ -20,7 +20,7 @@ const AboutHero = ({ onVideoClick, className = "" }: AboutHeroProps) => {
 
   return (
     <section
-      className={`relative flex flex-col items-center justify-center px-6 py-12 md:py-20 ${className}`}
+      className={`relative flex flex-col items-center justify-center px-6 py-4 md:py-20 ${className}`}
     >
       {/* Hero Heading */}
       <h1

@@ -9,7 +9,7 @@ export const DeckFeedbackVisual = ({
   bgColor,
 }: DeckFeedbackCardProps) => {
   return (
-    <div className="relative h-[400px] md:h-[604px] rounded-[32px] border border-[#E1D1FA] overflow-hidden">
+    <div className="relative h-[275px] md:h-[604px] rounded-[32px] border border-[#E1D1FA] overflow-hidden">
       {/* Gradient background */}
       <div
         className="absolute inset-0 rounded-[32px]"
@@ -36,7 +36,7 @@ export const DeckFeedbackVisual = ({
       </div>
 
       {/* Feedback card */}
-      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 scale-[0.7] md:scale-100 w-80 p-5 bg-white rounded-xl shadow-lg border border-[#E1D1FA] flex flex-col gap-5">
+      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 scale-[0.5] md:scale-100 w-80 p-5 bg-white rounded-xl shadow-lg border border-[#E1D1FA] flex flex-col gap-5">
         {/* Card header with navigation */}
         <div className="flex justify-between items-center w-full">
           <div className="flex gap-2.5">
@@ -95,7 +95,7 @@ export const DeckFeedbackVisual = ({
       </div>
 
       {/* Notification badge */}
-      <div className="absolute left-1/2 translate-x-[118px] md:translate-x-[168px] top-1/2 translate-y-[84px] md:translate-y-[120px] scale-[0.7] md:scale-100 w-7 h-7 bg-white rounded-full shadow-lg border border-orange-400 flex items-center justify-center">
+      <div className="hidden md:flex absolute left-1/2 translate-x-[118px] md:translate-x-[168px] top-1/2 translate-y-[84px] md:translate-y-[120px] scale-[0.5] md:scale-100 w-7 h-7 bg-white rounded-full shadow-lg border border-orange-400 items-center justify-center">
         <span className="text-xs font-medium">
           {feedback.notificationCount}
         </span>

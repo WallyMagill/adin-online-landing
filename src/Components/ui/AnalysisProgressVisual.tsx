@@ -8,7 +8,7 @@ export const AnalysisProgressVisual = ({
   bgColor,
 }: AnalysisCardProps) => {
   return (
-    <div className="relative h-[604px] rounded-[32px] border border-[#E1D1FA] overflow-hidden">
+    <div className="relative h-[275px] md:h-[604px] rounded-[32px] border border-[#E1D1FA] overflow-hidden">
       {/* Gradient background */}
       <div
         className="absolute inset-0 rounded-[32px]"
@@ -24,7 +24,7 @@ export const AnalysisProgressVisual = ({
       />
 
       {/* Analysis card */}
-      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 scale-75 md:scale-100 md:left-10 md:top-10 md:translate-x-0 md:translate-y-0 w-96 p-10 bg-white rounded-3xl border border-[#E1D1FA] flex flex-col gap-6">
+      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 scale-[0.55] md:scale-100 md:left-10 md:top-10 md:translate-x-0 md:translate-y-0 w-96 p-6 md:p-10 bg-white rounded-3xl border border-[#E1D1FA] flex flex-col gap-4 md:gap-6">
         {/* Header */}
         <div className="flex flex-col gap-2">
           <div className="flex items-center gap-2">

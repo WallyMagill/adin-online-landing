@@ -4,17 +4,17 @@ import Image from "next/image";
 
 export const ProfileCard = ({ profile }: ProfileCardProps) => {
   return (
-    <div className="relative h-96 md:h-[460px] overflow-hidden">
+    <div className="relative h-80 md:h-[460px] overflow-hidden">
       <div className="absolute inset-0 flex items-center justify-center">
-        {/* Left accent card */}
+        {/* Left accent card - hidden on mobile */}
         <div
-          className="absolute left-0 top-0 w-16 md:w-20 h-full rounded-r-3xl"
+          className="hidden md:block absolute left-0 top-0 w-16 md:w-20 h-full rounded-r-3xl"
           style={{ backgroundColor: COLORS.accent.green }}
         />
 
         {/* Center profile card */}
         <div
-          className="relative w-[300px] md:w-96 h-full rounded-3xl overflow-hidden"
+          className="relative w-[280px] md:w-96 h-full rounded-3xl overflow-hidden"
           style={{ backgroundColor: COLORS.accent.cream }}
         >
           {/* Gradient overlays */}
@@ -53,9 +53,9 @@ export const ProfileCard = ({ profile }: ProfileCardProps) => {
           </div>
         </div>
 
-        {/* Right accent card */}
+        {/* Right accent card - hidden on mobile */}
         <div
-          className="absolute right-0 top-0 w-[60px] md:w-[80px] h-full rounded-l-3xl"
+          className="hidden md:block absolute right-0 top-0 w-[60px] md:w-[80px] h-full rounded-l-3xl"
           style={{ backgroundColor: COLORS.neutral.light.light1 }}
         />
       </div>

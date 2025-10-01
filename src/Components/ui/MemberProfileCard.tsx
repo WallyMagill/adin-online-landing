@@ -9,7 +9,7 @@ export const MemberProfileCard = ({
 }: MemberProfile) => {
   return (
     <div
-      className="w-80 h-60 rounded-3xl overflow-hidden relative flex-shrink-0"
+      className="w-48 h-36 md:w-80 md:h-60 rounded-3xl overflow-hidden relative flex-shrink-0"
       style={{ backgroundColor: bgColor }}
     >
       <Image
